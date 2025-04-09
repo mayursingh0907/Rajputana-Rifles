@@ -92,6 +92,7 @@
     padding: 15px 0;
     position: sticky;
     top: 0;
+    font-size: 23px;
     z-index: 100;
     box-shadow: var(--box-shadow);
   }
@@ -100,7 +101,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
+    max-width: 900px;
+    height: 100px;
     margin: 0 auto;
     padding: 0 20px;
   }
@@ -125,6 +127,7 @@
   .main-nav ul {
     display: flex;
     gap: 20px;
+    height: 50px;
   }
   
   .main-nav a {
@@ -172,7 +175,7 @@
   .hero-banner {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('bg.jpeg') center;
     background-size: cover;
-    height: 1000px;
+    height: 900px;
     display: flex;
     justify-content: center;
     align-items: center;
