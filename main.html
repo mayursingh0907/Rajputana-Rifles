@@ -5,87 +5,376 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Defense Equipment Store</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>Defense Equipment Store</h1>
-        <nav>
-            <ul>
-                <li><a href="#products">Products</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#cart" id="cart-icon">Cart (<span id="cart-count">0</span>)</a></li>
-            </ul>
-        </nav>
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <i class="fas fa-shield-alt"></i>
+                <h1>Defense Equipment Store</h1>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#products"><i class="fas fa-store"></i> Products</a></li>
+                    <li><a href="#about"><i class="fas fa-info-circle"></i> About Us</a></li>
+                    <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                    <li>
+                        <a href="#cart" id="cart-icon" class="cart-button">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span id="cart-count" class="cart-count">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
     </header>
 
-    <main>
-        <section id="products">
-            <h2>Our Products</h2>
-            <div class="product" id="product1">
-                <img src="https://via.placeholder.com/150" alt="Product 1">
-                <h3>Product 1</h3>
-                <p>Description of product 1.</p>
-                <button class="add-to-cart" onclick="addToCart('Product 1')">Add to Cart</button>
-            </div>
-            <div class="product" id="product2">
-                <img src="https://via.placeholder.com/150" alt="Product 2">
-                <h3>Product 2</h3>
-                <p>Description of product 2.</p>
-                <button class="add-to-cart" onclick="addToCart('Product 2')">Add to Cart</button>
-            </div>
-            <div class="product" id="product3">
-                <img src="https://via.placeholder.com/150" alt="Product 3">
-                <h3>Product 3</h3>
-                <p>Description of product 3.</p>
-                <button class="add-to-cart" onclick="addToCart('Product 3')">Add to Cart</button>
-            </div>
-            <!-- Add more products as needed -->
-        </section>
-        <form id="orderForm">
-            <label for="product1">Product 1 Price:</label>
-            <input type="number" id="product1" value="0" />
-            <label for="quantity1">Quantity:</label>
-            <input type="number" id="quantity1" value="0" />
-            
-            <label for="product2">Product 2 Price:</label>
-            <input type="number" id="product2" value="0" />
-            <label for="quantity2">Quantity:</label>
-            <input type="number" id="quantity2" value="0" />
-            
-            <button type="button" onclick="calculateTotal()">Calculate Total</button>
-        </form>
-        
-        <div id="totalPrice">Total Price: $0.00</div>
-        <section id="about">
-            <h2>About Us</h2>
-            <p>We provide high-quality defense equipment for professionals.</p>
-        </section>
+    <div class="hero-banner">
+        <div class="hero-content">
+            <h2>Professional Defense Equipment</h2>
+            <p>Quality products for your security needs</p>
+            <a href="#products" class="cta-button">Explore Products</a>
+        </div>
+    </div>
 
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <form id="contactForm">
-                <label for="name">Name:</label>
-                <input type="text" id="name" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" required>
-                <label for="message">Message:</label>
-                <textarea id="message" required></textarea>
-                <button type="submit">Send</button>
-            </form>
-        </section>
-             <!-- Add this modal structure just before the closing </body> tag -->
-             <div id="cart-modal" class="modal">
-                <div class="modal-content">
-                    <span id="close-cart" class="close">&times;</span>
-                    <h2>Your Cart</h2>
-                    <div id="cart-items"></div>
+    <main class="main-content">
+        <section id="products" class="products-section">
+            <div class="section-header">
+                <h2>Our Products</h2>
+                <p>Browse our selection of high-quality defense equipment</p>
+            </div>
+            
+            <div class="product-grid">
+                <div class="product-card" id="product1">
+                    <div class="product-badge">Popular</div>
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/300x200" alt="Tactical Vest">
+                    </div>
+                    <div class="product-info">
+                        <h3>Tactical Vest</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(4.5/5)</span>
+                        </div>
+                        <p class="product-price">$249.99</p>
+                        <p>Professional-grade tactical vest with multiple attachment points and adjustable fit.</p>
+                        <button class="add-to-cart-btn" onclick="addToCart('Tactical Vest', 249.99)">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="product-card" id="product2">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/300x200" alt="Ballistic Helmet">
+                    </div>
+                    <div class="product-info">
+                        <h3>Ballistic Helmet</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(4.0/5)</span>
+                        </div>
+                        <p class="product-price">$329.99</p>
+                        <p>High-impact resistant ballistic helmet with adjustable padding and rail system.</p>
+                        <button class="add-to-cart-btn" onclick="addToCart('Ballistic Helmet', 329.99)">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="product-card" id="product3">
+                    <div class="product-badge">New</div>
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/300x200" alt="Tactical Boots">
+                    </div>
+                    <div class="product-info">
+                        <h3>Tactical Boots</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(5.0/5)</span>
+                        </div>
+                        <p class="product-price">$189.99</p>
+                        <p>Durable, water-resistant tactical boots designed for all-terrain operations.</p>
+                        <button class="add-to-cart-btn" onclick="addToCart('Tactical Boots', 189.99)">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="product-card" id="product4">
+                    <div class="product-badge">Limited</div>
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/300x200" alt="Assault Rifle">
+                    </div>
+                    <div class="product-info">
+                        <h3>Tactical Assault Rifle</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(4.7/5)</span>
+                        </div>
+                        <p class="product-price">$1299.99</p>
+                        <p>Professional-grade tactical assault rifle with adjustable stock and rail mounting system.</p>
+                        <button class="add-to-cart-btn" onclick="addToCart('Tactical Assault Rifle', 1299.99)">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
                 </div>
             </div>
+        </section>
+        
+        <section id="calculator" class="calculator-section">
+            <div class="section-header">
+                <h2>Price Calculator</h2>
+                <p>Calculate the total cost of your order</p>
+            </div>
+            
+            <div class="calculator-container">
+                <form id="orderForm" class="calculator-form">
+                    <div class="calculator-row">
+                        <div class="calculator-item">
+                            <label for="product1Select">Product:</label>
+                            <select id="product1Select" onchange="updateProductPrice(1)">
+                                <option value="">-- Select Product --</option>
+                                <option value="249.99">Tactical Vest ($249.99)</option>
+                                <option value="329.99">Ballistic Helmet ($329.99)</option>
+                                <option value="189.99">Tactical Boots ($189.99)</option>
+                                <option value="1299.99">Tactical Assault Rifle ($1299.99)</option>
+                            </select>
+                            <input type="hidden" id="product1" value="0">
+                            
+                            <label for="quantity1">Quantity:</label>
+                            <div class="quantity-selector">
+                                <button type="button" class="quantity-btn minus" onclick="decrementQuantity(1)">-</button>
+                                <input type="number" id="quantity1" value="0" min="0" onchange="calculateTotal()">
+                                <button type="button" class="quantity-btn plus" onclick="incrementQuantity(1)">+</button>
+                            </div>
+                        </div>
+                        
+                        <div class="calculator-item">
+                            <label for="product2Select">Product:</label>
+                            <select id="product2Select" onchange="updateProductPrice(2)">
+                                <option value="">-- Select Product --</option>
+                                <option value="249.99">Tactical Vest ($249.99)</option>
+                                <option value="329.99">Ballistic Helmet ($329.99)</option>
+                                <option value="189.99">Tactical Boots ($189.99)</option>
+                                <option value="1299.99">Tactical Assault Rifle ($1299.99)</option>
+                            </select>
+                            <input type="hidden" id="product2" value="0">
+                            
+                            <label for="quantity2">Quantity:</label>
+                            <div class="quantity-selector">
+                                <button type="button" class="quantity-btn minus" onclick="decrementQuantity(2)">-</button>
+                                <input type="number" id="quantity2" value="0" min="0" onchange="calculateTotal()">
+                                <button type="button" class="quantity-btn plus" onclick="incrementQuantity(2)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="button" class="calculate-btn" onclick="calculateTotal()">
+                        <i class="fas fa-calculator"></i> Calculate Total
+                    </button>
+                </form>
+                
+                <div id="totalPrice" class="total-price">
+                    <div class="total-label">Total Price:</div>
+                    <div class="total-amount">$0.00</div>
+                </div>
+                
+                <button id="add-to-cart-btn" class="add-all-to-cart-btn" disabled onclick="addCalculatedItemsToCart()">
+                    <i class="fas fa-cart-plus"></i> Add Items to Cart
+                </button>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="section-header">
+                <h2>About Us</h2>
+                <p>Learn more about our company and mission</p>
+            </div>
+            
+            <div class="about-container">
+                <div class="about-image">
+                    <img src="https://via.placeholder.com/500x300" alt="Our Team">
+                </div>
+                <div class="about-content">
+                    <h3>Committed to Excellence</h3>
+                    <p>Since 2005, we have been providing high-quality defense equipment for professionals in law enforcement, military, and security sectors.</p>
+                    <p>Our mission is to deliver premium equipment that ensures the safety and effectiveness of those who put their lives on the line to protect others.</p>
+                    <div class="about-features">
+                        <div class="feature">
+                            <i class="fas fa-medal"></i>
+                            <h4>Quality Assured</h4>
+                            <p>All products are rigorously tested to meet industry standards.</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-truck"></i>
+                            <h4>Fast Shipping</h4>
+                            <p>Worldwide delivery with tracking on all orders.</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-headset"></i>
+                            <h4>Expert Support</h4>
+                            <p>Professional assistance from our knowledgeable team.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <div class="section-header">
+                <h2>Contact Us</h2>
+                <p>Get in touch with our team</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Address</h4>
+                            <p>1234 Defense Street, Security City, SC 54321</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+1 (555) 123-4567</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@defenseequipmentstore.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Hours</h4>
+                            <p>Monday - Friday: 9am - 5pm</p>
+                            <p>Saturday: 10am - 3pm</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <form id="contactForm" class="contact-form">
+                    <div class="form-group">
+                        <label for="name"><i class="fas fa-user"></i> Name</label>
+                        <input type="text" id="name" required placeholder="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label for="email"><i class="fas fa-envelope"></i> Email</label>
+                        <input type="email" id="email" required placeholder="john@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject"><i class="fas fa-tag"></i> Subject</label>
+                        <input type="text" id="subject" required placeholder="Product Inquiry">
+                    </div>
+                    <div class="form-group">
+                        <label for="message"><i class="fas fa-comment"></i> Message</label>
+                        <textarea id="message" required placeholder="Your message here..."></textarea>
+                    </div>
+                    <button type="submit">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
+        </section>
     </main>
 
-    <footer>
-        <p>&copy; 2023 Defense Equipment Store</p>
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-shopping-cart"></i> Your Cart</h2>
+                <span id="close-cart" class="close">&times;</span>
+            </div>
+            <div id="cart-items" class="cart-items"></div>
+            <div class="cart-footer">
+                <div id="cart-total" class="cart-total">Total: $0.00</div>
+                <button id="checkout-btn" class="checkout-btn" disabled>
+                    <i class="fas fa-credit-card"></i> Proceed to Checkout
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Container -->
+    <div id="notification-container"></div>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-info">
+                <div class="footer-logo">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Defense Equipment Store</h3>
+                </div>
+                <p>Providing quality defense equipment since 2005.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="#">Tactical Gear</a></li>
+                        <li><a href="#">Protection Equipment</a></li>
+                        <li><a href="#">Accessories</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns & Refunds</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2023 Defense Equipment Store. All rights reserved.</p>
+        </div>
     </footer>
 
     <script src="script.js"></script>
