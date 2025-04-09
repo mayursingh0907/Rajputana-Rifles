@@ -9,7 +9,7 @@
     --success-color: #2ecc71;
     --border-radius: 5px;
     --box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    --transition: all 0.3s ease;
+    --transition: all 0.5s ease;
   }
   
   * {
