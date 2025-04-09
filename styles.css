@@ -170,8 +170,9 @@
   
   /* Hero Banner */
   .hero-banner {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://via.placeholder.com/1920x600') no-repeat center/cover;
-    height: 500px;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('bg.jpeg') center;
+    background-size: cover;
+    height: 1000px;
     display: flex;
     justify-content: center;
     align-items: center;
