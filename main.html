@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Defense Equipment Store</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Defense Equipment Store</h1>
+        <nav>
+            <ul>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#cart" id="cart-icon">Cart (<span id="cart-count">0</span>)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="products">
+            <h2>Our Products</h2>
+            <div class="product" id="product1">
+                <img src="https://via.placeholder.com/150" alt="Product 1">
+                <h3>Product 1</h3>
+                <p>Description of product 1.</p>
+                <button class="add-to-cart" onclick="addToCart('Product 1')">Add to Cart</button>
+            </div>
+            <div class="product" id="product2">
+                <img src="https://via.placeholder.com/150" alt="Product 2">
+                <h3>Product 2</h3>
+                <p>Description of product 2.</p>
+                <button class="add-to-cart" onclick="addToCart('Product 2')">Add to Cart</button>
+            </div>
+            <div class="product" id="product3">
+                <img src="https://via.placeholder.com/150" alt="Product 3">
+                <h3>Product 3</h3>
+                <p>Description of product 3.</p>
+                <button class="add-to-cart" onclick="addToCart('Product 3')">Add to Cart</button>
+            </div>
+            <!-- Add more products as needed -->
+        </section>
+        <form id="orderForm">
+            <label for="product1">Product 1 Price:</label>
+            <input type="number" id="product1" value="0" />
+            <label for="quantity1">Quantity:</label>
+            <input type="number" id="quantity1" value="0" />
+            
+            <label for="product2">Product 2 Price:</label>
+            <input type="number" id="product2" value="0" />
+            <label for="quantity2">Quantity:</label>
+            <input type="number" id="quantity2" value="0" />
+            
+            <button type="button" onclick="calculateTotal()">Calculate Total</button>
+        </form>
+        
+        <div id="totalPrice">Total Price: $0.00</div>
+        <section id="about">
+            <h2>About Us</h2>
+            <p>We provide high-quality defense equipment for professionals.</p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <form id="contactForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+                <label for="message">Message:</label>
+                <textarea id="message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </section>
+             <!-- Add this modal structure just before the closing </body> tag -->
+             <div id="cart-modal" class="modal">
+                <div class="modal-content">
+                    <span id="close-cart" class="close">&times;</span>
+                    <h2>Your Cart</h2>
+                    <div id="cart-items"></div>
+                </div>
+            </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Defense Equipment Store</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
