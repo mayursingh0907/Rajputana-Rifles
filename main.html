@@ -28,6 +28,15 @@
                     </li>
                 </ul>
             </nav>
+            <div class="currency-switcher">
+                <label for="currency">Currency:</label>
+                <select id="currency" onchange="changeCurrency()">
+                    <option value="USD" selected>USD ($)</option>
+                    <option value="EUR">EUR (€)</option>
+                    <option value="INR">INR (₹)</option>
+                </select>
+            </div>
+            
             <div class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
             </div>
@@ -65,7 +74,7 @@
                             <i class="fas fa-star-half-alt"></i>
                             <span>(4.5/5)</span>
                         </div>
-                        <p class="product-price">$249.99</p>
+                        <p class="product-price">249.99</p>
                         <p>Professional-grade tactical vest with multiple attachment points and adjustable fit.</p>
                         <button class="add-to-cart-btn" onclick="addToCart('Tactical Vest', 249.99)">
                             <i class="fas fa-cart-plus"></i> Add to Cart
@@ -87,7 +96,7 @@
                             <i class="far fa-star"></i>
                             <span>(4.0/5)</span>
                         </div>
-                        <p class="product-price">$329.99</p>
+                        <p class="product-price">329.99</p>
                         <p>High-impact resistant ballistic helmet with adjustable padding and rail system.</p>
                         <button class="add-to-cart-btn" onclick="addToCart('Ballistic Helmet', 329.99)">
                             <i class="fas fa-cart-plus"></i> Add to Cart
@@ -110,7 +119,7 @@
                             <i class="fas fa-star"></i>
                             <span>(5.0/5)</span>
                         </div>
-                        <p class="product-price">$189.99</p>
+                        <p class="product-price">189.99</p>
                         <p>Durable, water-resistant tactical boots designed for all-terrain operations.</p>
                         <button class="add-to-cart-btn" onclick="addToCart('Tactical Boots', 189.99)">
                             <i class="fas fa-cart-plus"></i> Add to Cart
@@ -133,7 +142,7 @@
                             <i class="fas fa-star-half-alt"></i>
                             <span>(4.7/5)</span>
                         </div>
-                        <p class="product-price">$1299.99</p>
+                        <p class="product-price">1299.99</p>
                         <p>Professional-grade tactical assault rifle with adjustable stock and rail mounting system.</p>
                         <button class="add-to-cart-btn" onclick="addToCart('Tactical Assault Rifle', 1299.99)">
                             <i class="fas fa-cart-plus"></i> Add to Cart
@@ -156,10 +165,10 @@
                             <label for="product1Select">Product:</label>
                             <select id="product1Select" onchange="updateProductPrice(1)">
                                 <option value="">-- Select Product --</option>
-                                <option value="249.99">Tactical Vest ($249.99)</option>
-                                <option value="329.99">Ballistic Helmet ($329.99)</option>
-                                <option value="189.99">Tactical Boots ($189.99)</option>
-                                <option value="1299.99">Tactical Assault Rifle ($1299.99)</option>
+                                <option value="249.99">Tactical Vest (249.99)</option>
+                                <option value="329.99">Ballistic Helmet (329.99)</option>
+                                <option value="189.99">Tactical Boots (189.99)</option>
+                                <option value="1299.99">Tactical Assault Rifle (1299.99)</option>
                             </select>
                             <input type="hidden" id="product1" value="0">
                             
@@ -175,10 +184,10 @@
                             <label for="product2Select">Product:</label>
                             <select id="product2Select" onchange="updateProductPrice(2)">
                                 <option value="">-- Select Product --</option>
-                                <option value="249.99">Tactical Vest ($249.99)</option>
-                                <option value="329.99">Ballistic Helmet ($329.99)</option>
-                                <option value="189.99">Tactical Boots ($189.99)</option>
-                                <option value="1299.99">Tactical Assault Rifle ($1299.99)</option>
+                                <option value="249.99">Tactical Vest (249.99)</option>
+                                <option value="329.99">Ballistic Helmet (329.99)</option>
+                                <option value="189.99">Tactical Boots (189.99)</option>
+                                <option value="1299.99">Tactical Assault Rifle (1299.99)</option>
                             </select>
                             <input type="hidden" id="product2" value="0">
                             
@@ -198,7 +207,7 @@
                 
                 <div id="totalPrice" class="total-price">
                     <div class="total-label">Total Price:</div>
-                    <div class="total-amount">$0.00</div>
+                    <div class="total-amount">0.00</div>
                 </div>
                 
                 <button id="add-to-cart-btn" class="add-all-to-cart-btn" disabled onclick="addCalculatedItemsToCart()">

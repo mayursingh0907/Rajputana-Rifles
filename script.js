@@ -242,6 +242,51 @@ function decrementQuantity(num) {
     }
 }
 
+const exchangeRates = {
+    USD: 1,
+    EUR: 0.93,
+    INR: 83.0
+};
+
+let currentCurrency = 'USD';
+
+function changeCurrency() {
+    const selectedCurrency = document.getElementById('currency').value;
+    currentCurrency = selectedCurrency;
+    updateAllPrices();
+}
+
+function formatCurrency(value) {
+    return new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: currentCurrency
+    }).format(value * exchangeRates[currentCurrency]);
+}
+
+function updateAllPrices() {
+    const productCards = document.querySelectorAll('.product-card');
+
+    productCards.forEach(card => {
+        const priceElement = card.querySelector('.product-price');
+        const basePrice = parseFloat(priceElement.getAttribute('data-base-price'));
+
+        if (!isNaN(basePrice)) {
+            priceElement.innerText = formatCurrency(basePrice);
+        }
+    });
+
+    calculateTotal(); // Recalculate calculator section too
+}
+
+// Store base prices in HTML on load
+document.addEventListener('DOMContentLoaded', () => {
+    const productPrices = document.querySelectorAll('.product-price');
+    productPrices.forEach(price => {
+        const rawPrice = parseFloat(price.innerText.replace(/[^0-9.]/g, ''));
+        price.setAttribute('data-base-price', rawPrice);
+    });
+});
+
 function calculateTotal() {
     // Product 1
     const price1 = parseFloat(document.getElementById('product1').value) || 0;
